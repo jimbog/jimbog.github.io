@@ -89,7 +89,7 @@ app.controller('FetchCtrl', function($scope, $http, alerts) {
     $scope.getTable = function(sort_by) {
       $scope.sort_by = sort_by;
 
-      $http.jsonp("http://localhost:5000/v1/records/" + sort_by + "?callback=JSON_CALLBACK")
+      $http.jsonp("http://csv-api.herokuapp.com/v1/records/" + sort_by + "?callback=JSON_CALLBACK")
       .success(function(data){
         console.log('success');
         console.log(data);
@@ -106,7 +106,7 @@ app.controller('FetchCtrl', function($scope, $http, alerts) {
       text = encodeURIComponent($scope.postData);
       console.log(text);
 
-      $http.post("http://localhost:5000/v1/records/" + text )
+      $http.post("http://csv-api.herokuapp.com/v1/records/" + text )
       
       .success(function(data){
         console.log('successfully posted');
